@@ -9,21 +9,19 @@ public:
 
         while (r < n) {
 
-            bool duplicate = false;
-
-            for (int i = L; i < r; i++) {
+            int i;
+            for (i = L; i < r; i++) {
                 if (s[i] == s[r]) {
-                    duplicate = true;
                     break;
                 }
             }
 
-            if (!duplicate) {
+            if (i == r) {      // No duplicate found
                 count++;
                 maxcount = max(maxcount, count);
                 r++;
             }
-            else {
+            else {             // Duplicate found
                 L++;
                 count--;
             }
